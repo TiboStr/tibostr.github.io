@@ -1,0 +1,41 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1b1a1a;
+    color: rgb(228, 225, 225);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: green;
+    margin: .5em 0;
+}
+
+h1 {
+    font-size: 3.2em;
+    color: green;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+ul {
+    display: inline-block;
+    text-align: left;
+    list-style-type: square;
+}
+
+.blink {
+    display: inline;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.9;
+    }
+    90% {
+        opacity: 0.2;
+    }
+}
