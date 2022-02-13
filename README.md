@@ -1,1 +1,1 @@
-Find my personal website at https://tibostr.github.io/website/.
+Find my personal website at https://tibostr.github.io/.
