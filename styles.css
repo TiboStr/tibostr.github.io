@@ -4,20 +4,93 @@ body {
     color: rgb(228, 225, 225);
     text-align: center;
     font-size: 1.2em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: green;
-    margin: .5em 0;
+.blockquote-wrapper {
+    display: flex;
 }
 
-h1 {
-    font-size: 3.2em;
-    color: green;
+.blockquote {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+    padding: 15px 0;
+    width: 100%;
+    max-width: 500px;
+    z-index: 1;
+    margin: 80px auto;
+    align-self: center;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
 }
 
-h2 {
-    font-size: 2.5em;
+.fade-out {
+    animation-name: fade-out;
+    animation-duration: 1.1s;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    animation-name: fade-in;
+    animation-duration: 1s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.blockquote:after {
+    position: absolute;
+    content: "”";
+    color: rgba(255, 255, 255, 1);
+    font-size: 10rem;
+    line-height: 0;
+    bottom: -43px;
+    right: 30px;
+}
+
+#quote-author:before {
+    content: "— "
+}
+
+#quote-author {
+    font-style: italic;
+    font-size: .7em;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 50%;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .main {
+        max-width: 90%;
+    }
 }
 
 ul {
@@ -27,17 +100,19 @@ ul {
 }
 
 footer {
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
 }
 
 .fa {
-    margin: .3em;
-    margin-top: 1.3em;
+    margin-left: .3em;
+    margin-right: .3em;
+    /*margin-top: 1.3em;*/
+    margin-bottom: 1em;
     padding: .7em;
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
+    z-index: 1;
 }
 
 

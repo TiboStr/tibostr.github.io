@@ -5,51 +5,85 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tibo Stroo</title>
-    <meta name="description" content="">
+    <meta name="description" content="Personal website Tibo Stroo">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <h1>#! Tibo Stroo<span class="blink">_</span>
-    </h1>
-    <h2>About me</h2>
-
-    <div class="text">
-        <p>
-            Hi, my name is Tibo Stroo. I am currently studying Computer Science at
-            Ghent University.
-        </p>
-        <ul>
-            <li>Favorite programming language: Python</li>
-            <li>Favorite operating system: Manjaro Linux</li>
-        </ul>
+    <div class="blockquote-wrapper">
+        <div class="blockquote">
+            <div id="quote-title">
+            </div>
+            <div id="quote-author">
+            </div>
+        </div>
     </div>
 
-    <h2>Skills</h2>
-    <div class="text">
-        <ul>
-            <li>Python</li>
-            <li>C</li>
-            <li>C++</li>
-            <li>Java</li>
-            <li>Kotlin</li>
-            <li>JavaScript</li>
-            <li>Haskell</li>
-            <li>HTML/CSS</li>
-            <li>Linux</li>
-            <li>SQL</li>
-            <li>Git</li>
-        </ul>
+    <div class="main">
+        <h1>About me</h1>
+
+        <p>Hello, my name is Tibo Stroo. I am currently studying Computer Science at Ghent University.
+            I am skilled at Python, C, C++, Java, Kotlin, Haskell, JavaScript, HTML, CSS, Bootstrap, React, Vue, SQL,
+            Bash, Linux, Git and much more.</p>
     </div>
-    <h2>Projects</h2>
-    <div class="text">
-        <a href="https://users.ugent.be/~tistroo/" target="_blank">Hangman</href>
-            <br>
-            <a href="https://github.com/TiboStr" target="_blank">GitHub</href>
-    </div>
+
+
+
+    <script>
+        const sleep = m => new Promise(r => setTimeout(r, m));
+        const api_url = "https://zenquotes.io/api/quotes/";
+
+        async function fetchQuotes() {
+            try {
+                const response = await fetch(api_url);
+                const data = await response.json();
+                return data;
+            } catch {
+                // In case api does not work
+                return [
+                    { "q": "Don’t let the noise of others’ opinions drown out your own inner voice.", "a": "Steve Jobs" },
+                    { "q": "Stay hungry. Stay foolish.", "a": "Steve Jobs" },
+                    { "q": "Success is not final, failure is not fatal. It is the courage to continue that counts.", "a": "Winston Churchill" },
+                    { "q": "A person who never made a mistake never tried anything new.", "a": "Albert Einstein" },
+                    { "q": "Trust, but verify.", "a": "Ronald Reagan" },
+                    { "q": "Criticism is easy, achievement is difficult.", "a": "Winston Churchill" },
+                    { "q": "The only true wisdom is in knowing you know nothing.", "a": "Socrates" },
+                ];
+            }
+        }
+
+        async function main() {
+            let data = await fetchQuotes();
+
+            while (true) {
+                if (data.length > 0) {
+                    let quote = data.pop();
+                    let blockquote = document.getElementsByClassName("blockquote").item(0);
+                    blockquote.classList.add("fade-out");
+                    await sleep(1000);  // Fade out animation
+                    blockquote.classList.add("fade-in");
+                    document.getElementById("quote-title").innerHTML = quote.q;
+                    document.getElementById("quote-author").innerHTML = quote.a;
+                    await sleep(1000);  // Fade in animation
+                    blockquote.classList.remove("fade-out");
+                    blockquote.classList.remove("fade-in");
+                } else {
+                    data = await fetchQuotes();
+                }
+                await sleep(6000);  // Refresh quote
+            }
+        }
+
+        main();
+
+    </script>
+
 </body>
+
+
 <footer>
     <div class="navbar socials">
         <a href="https://www.linkedin.com/in/tibo-stroo-0319b0231/" target="_blank" class="fa fa-linkedin"></a>
