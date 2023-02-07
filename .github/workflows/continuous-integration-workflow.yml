@@ -1,28 +1,18 @@
-name: CI
+name: React app deployement
+
 on:
   push:
-    branches:
-      - main
-      - dev
-
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build-test-deploy:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set-up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "18.x"
-      - run: npm install
-      - run: npm run build
-      #- run: npm test
-      - name: Deploy
-        uses: crazy-max/ghaction-github-pages@v1
-        with:
-          target_branch: gh-pages
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.SECRET_CI }}
+      - uses: actions/checkout@v2
+
+      - name: Deploy react app to github pages
+        uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
