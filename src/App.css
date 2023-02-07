@@ -1,0 +1,80 @@
+.TopComponent {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(-45deg, /*dodgerblue, rgba(44, 107, 237, 0.54), steelblue, */ dodgerblue, rgba(30, 144, 240, 0.91), rgba(30, 140, 225, 0.7), rgba(30, 135, 210, 0.7));
+    animation: gradient 7s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.waving-hand {
+    animation: waving-hand-animation 2s ease infinite;
+    display: inline-block;
+}
+
+@keyframes waving-hand-animation {
+    0% {
+        transform: rotate(0deg)
+    }
+    10% {
+        transform: rotate(15deg)
+    }
+    20% {
+        transform: rotate(-10deg)
+    }
+    30% {
+        transform: rotate(10deg)
+    }
+    40% {
+        transform: rotate(-5deg)
+    }
+    50% {
+        transform: rotate(10deg)
+    }
+    60% {
+        transform: rotate(-2deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+
+}
+
+.scroll-down {
+    color: white;
+    animation: scroll-color-animation 1s ease infinite;
+}
+
+.scroll-down:hover {
+    cursor: pointer;
+}
+
+@keyframes scroll-color-animation {
+    0% {
+        color: white
+    }
+    90% {
+        color: antiquewhite
+    }
+}
+
+.social {
+    color: white;
+    margin-left: 6%;
+    margin-right: 4%;
+}
+
+.social:hover {
+    cursor: pointer;
+}
