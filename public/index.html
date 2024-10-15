@@ -25,6 +25,35 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Tibo Stroo</title>
+
+    <script type="application/ld+json" id="me">
+      {
+        "@context": ["https://schema.org", "http://xmlns.com/foaf/0.1/"],
+        "@type": "Person",
+        "@id": "https://tibostr.github.io/#me",
+        "name": "Tibo Stroo",
+        "foaf:givenName": { "@value": "Tibo", "@language": "en" },
+        "foaf:familyName": { "@value": "Stroo", "@language": "en" },
+        "birthDate": "2002-01-11",
+        "foaf:knows": [{ "@id": "https://github.com/arnedierieck/#me" }],
+        "jobTitle": "Student Computer Science Engineering",
+        "hobby": ["Cycling", "Running"],
+        "sameAs": [
+          "https://www.linkedin.com/in/tibostroo/"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Ghent University",
+          "url": "https://www.ugent.be/"
+        },
+        "affiliation": {
+          "@type": "Course",
+          "name": "Big Data Technology",
+          "url": "https://pietercolpaert.be/teaching/bdt/#2024-2025"
+        }
+      }
+    </script>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
